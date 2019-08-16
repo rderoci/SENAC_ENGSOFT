@@ -1,0 +1,14 @@
+<div *ngIf="heroes.length <= 0">
+  You don't have heroes, what are you waiting? Create a new Hero clicking in the below link.
+</div>
+<mat-list>
+    <mat-list-item *ngFor="let hero of heroes;  let i=index"
+                   (click)="select(hero)"
+                   [routerLink]="['../hero', hero.id]">
+                    <!-- /core/layout/heroes/hero -->
+      {{i+1}}.
+      {{hero.name}}
+      <button mat-button color="accent" (click)="delete(hero)"><mat-icon>delete</mat-icon></button>
+
+    </mat-list-item>
+</mat-list>
